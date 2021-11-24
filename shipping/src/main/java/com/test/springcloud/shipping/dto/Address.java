@@ -1,4 +1,4 @@
-package com.test.springcloud.shipping;
+package com.test.springcloud.shipping.dto;
 
 import lombok.Data;
 
