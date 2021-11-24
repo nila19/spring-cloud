@@ -1,0 +1,47 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+        git:
+          uri: https://github.com/nila19/spring-cloud-config
+          search-paths: dev
+          username: nila19
+          password: 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
+          clone-on-start: true
+          force-pull: true
+          delete-untracked-branches: true
+          basedir: './cloned2'
+          default-label: main
+  security:
+    user:
+      name: root
+      password: s3cr3t
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    info:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+      enabled: true
+      show-details: always
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+    defaults:
+      enabled: true
