@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ShippingService {
 
-  Order ship(Order order) {
+  public Order ship(Order order) {
     this.processShipment(order);
     return order;
   }
