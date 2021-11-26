@@ -1,5 +1,8 @@
 server:
-  port: 8888
+  port: ${PORT:8888}
+  tomcat:
+    threads:
+      max: 2
 
 spring:
   application:
@@ -10,19 +13,19 @@ spring:
         encrypt:
           enabled: false
         git:
-          uri: https://github.com/nila19/spring-cloud-config
-          search-paths: dev
-          username: nila19
-          password: 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
+          uri: ${GIT_URI:https://github.com/nila19/spring-cloud-config}
+          search-paths: ${GIT_PATH:dev}
+          username: ${GIT_UID:nila19}
+          password: ${GIT_PWD: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}
+          default-label: ${GIT_LABEL:main}
+          basedir: ${GIT_BASEDIR:'./cloned2'}
           clone-on-start: true
           force-pull: true
           delete-untracked-branches: true
-          basedir: './cloned2'
-          default-label: main
   security:
     user:
-      name: root
-      password: s3cr3t
+      name: ${CONFIG_UID:root}
+      password: ${CONFIG_PWD:s3cr3t}
 
 management:
   endpoints:

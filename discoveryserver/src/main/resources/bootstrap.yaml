@@ -6,10 +6,10 @@ spring:
   cloud:
     config:
       name: discoveryserver
-      uri: http://localhost:8888
-      username: root
-      password: s3cr3t
-      label: main
+      uri: ${CONFIG_URI:http://localhost:8888}
+      username: ${CONFIG_UID:root}
+      password: ${CONFIG_PWD:s3cr3t}
+      label: ${GIT_LABEL:main}
       fail-fast: true
       retry:
         initial-interval: 1000
